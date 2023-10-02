@@ -5,7 +5,7 @@ const form = document.querySelector("form"),
 	// declearation
 	fileInput = form.querySelector(".file-input"),
 	progressArea = document.querySelector(".progress-area"),
-	uploadArea = document.querySelector(".upload-area");
+	uploadedArea = document.querySelector(".uploaded-area");
 
 form.addEventListener("click", () => {
 	fileInput.click();
@@ -45,6 +45,10 @@ function uploadFile(name) {
 		// get file size in kb
 		let fileTotal = Math.floor(total / 1000)
 
+		let fileSize;
+		// get file size in kb if is less than 1024 and in mb if is grater or equal to 1024
+		(fileTotal < 1024) ? fileSize = fileTotal + " KB" :  fileSize = (loaded / (1024 * 1024)).toFixed(2) + " MB";
+
 		let progressHTML = `
 			<li class="row">
                 <i data-feather="file-text"></i>
@@ -59,24 +63,28 @@ function uploadFile(name) {
                 </div>
             </li>
 		`;
+		// uploadedArea.innerHTML = ""
+		uploadedArea.classList.add("onprogress");
 		progressArea.innerHTML = progressHTML
 
 		if (loaded == total) {
 			progressArea.innerHTML = ""
 
-			let uploadHTML = `
+			let uploadedHTML = `
 				 <li class="row">
 	                <div class="content">
 	                    <i data-feather="file-text"></i>
 	                    <div class="details">
 	                        <span class="name">${name} . Uploaded</span>
-	                        <span class="size">${fileTotal}KB</span>
+	                        <span class="size">${fileSize}</span>
 	                    </div>
 	                </div>
 	                <i data-feather="check" class="check"></i>
 	            </li>
 			`;
-			uploadArea.insertAdjacentHTML("afterbegin", uploadHTML)
+			uploadedArea.classList.remove("onprogress");
+			/// uploadedArea.innerHTML = uploadedHTML;
+			uploadedArea.insertAdjacentHTML("afterbegin", uploadedHTML)
 		}
 	})
 

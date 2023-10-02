@@ -96,32 +96,36 @@ section .details span {
 
 
 /**/
-.upload-area {
-	max-height: 150px;
+.uploaded-area {
+	max-height: 230px;
 	overflow: scroll;
 }
 
-.upload-area::-webkit-scrollbar {
+.uploaded-area.onprogress {
+	max-height: 150px;
+}
+
+.uploaded-area::-webkit-scrollbar {
 	width: 0px;
 }
 
-.upload-area .row .content {
+.uploaded-area .row .content {
 	display: flex;
 	align-items: center;
 }
 
-.upload-area .row .details {
+.uploaded-area .row .details {
 	display: flex;
 	margin-left: 15px;
 	flex-direction: column;
 }
 
-.upload-area .details .size {
+.uploaded-area .details .size {
 	font-size: 11px;
 	color: #404040;
 }
 
-.upload-area .check {
+.uploaded-area .check {
 	color: #699;
 	font-size: 16px;
 
