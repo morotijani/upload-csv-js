@@ -2,7 +2,6 @@
 	
 	$fileName = $_FILES['file']['name'];
 	$fileTmpName = $_FILES['file']['tmp_name'];
-	$fileNewName = time() . $fileName;
-	$fileDestination = "files/" . $fileNewName;
+	$fileDestination = "files/" . $fileName;
 
 	move_uploaded_file($fileTmpName, $fileDestination);

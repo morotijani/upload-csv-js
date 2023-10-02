@@ -38,8 +38,12 @@ body {
 	border: 2px dashed #699;
 }
 
-form :where(svg, p) {
+form :where(i, p) {
 	color: #699;
+}
+
+form i {
+	font-size: 30px;
 }
 
 form p {
@@ -58,7 +62,7 @@ section .row {
 	justify-content: space-between;
 }
 
-section .row  svg {
+section .row  i {
 	font-size: 30px;
 	color: #699;
 }
@@ -125,7 +129,7 @@ section .details span {
 	color: #404040;
 }
 
-.uploaded-area .check {
+.uploaded-area .bi-check2-all {
 	color: #699;
 	font-size: 16px;
 

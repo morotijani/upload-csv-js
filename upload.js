@@ -1,4 +1,3 @@
-feather.replace();
 
 // targeting form
 const form = document.querySelector("form"),
@@ -51,7 +50,7 @@ function uploadFile(name) {
 
 		let progressHTML = `
 			<li class="row">
-                <i data-feather="file-text"></i>
+                <i class="bi bi-file-text-fill"></i>
                 <div class="content">
                     <div class="details">
                         <span class="name">${name} . Uploading</span>
@@ -73,13 +72,13 @@ function uploadFile(name) {
 			let uploadedHTML = `
 				 <li class="row">
 	                <div class="content">
-	                    <i data-feather="file-text"></i>
+	                    <i class="bi bi-file-text-fill"></i>
 	                    <div class="details">
-	                        <span class="name">${name} . Uploaded</span>
+	                        <span class="name">${name} . Uploaded . <a href="view.file.php?f=${name}">view</a></span>
 	                        <span class="size">${fileSize}</span>
 	                    </div>
 	                </div>
-	                <i data-feather="check" class="check"></i>
+	                <i class="bi bi-check2-all"></i>
 	            </li>
 			`;
 			uploadedArea.classList.remove("onprogress");
